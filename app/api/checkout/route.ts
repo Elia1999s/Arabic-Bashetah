@@ -3,7 +3,7 @@ import Stripe from "stripe";
 
 // Initialize Stripe with a fallback so it doesn't crash if env var is missing during build
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || "sk_test_mock", {
-  apiVersion: "2024-12-18.acacia", // Use the latest API version or whatever the project uses
+
 });
 
 export async function POST(req: Request) {
@@ -27,7 +27,7 @@ export async function POST(req: Request) {
             product_data: {
               name: "קורס ערבית בשטח - מסלול פרימיום מלא",
             },
-            unit_amount: 239900, // 2399 ILS in agorot
+            unit_amount: 23990, // 2399 ILS in agorot
           },
           quantity: 1,
         },

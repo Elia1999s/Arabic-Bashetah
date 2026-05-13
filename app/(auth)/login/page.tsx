@@ -3,21 +3,24 @@ export default function LoginPage() {
     <main className="mx-auto max-w-6xl px-4 py-16 md:px-8 md:py-24">
       <div className="grid gap-8 lg:grid-cols-2">
         <div className="glass rounded-[30px] p-8">
-          <h1 className="text-3xl font-black">הרשמה ופתיחת חשבון</h1>
-          <p className="mt-3 leading-7 text-slate-100/80">במערכת האמיתית זה יתחבר ל־Supabase Auth. המשתמש יירשם, ישלם, ורק אז יקבל גישה מלאה לקורס.</p>
+          <h1 className="text-3xl font-black text-slate-900">התחברות לאזור האישי</h1>
+          <p className="mt-3 leading-7 text-slate-600">הזן את הפרטים שלך כדי להתחבר או ליצור חשבון חדש ולקבל גישה לכל תכני הקורס.</p>
           <div className="mt-8 grid gap-4">
-            <input placeholder="שם מלא" className="rounded-2xl border border-white/10 bg-slate-950/45 px-4 py-4 outline-none placeholder:text-slate-400" />
-            <input placeholder="אימייל" className="rounded-2xl border border-white/10 bg-slate-950/45 px-4 py-4 outline-none placeholder:text-slate-400" />
-            <input type="password" placeholder="סיסמה" className="rounded-2xl border border-white/10 bg-slate-950/45 px-4 py-4 outline-none placeholder:text-slate-400" />
-            <button className="rounded-2xl bg-gradient-to-l from-fuchsia-500 to-orange-400 px-5 py-4 font-bold text-white">צור חשבון</button>
+            <input placeholder="שם מלא" className="rounded-2xl border border-slate-200 bg-white px-4 py-4 text-slate-900 outline-none placeholder:text-slate-400 focus:border-fuchsia-400 focus:ring-1 focus:ring-fuchsia-400" />
+            <input placeholder="אימייל" className="rounded-2xl border border-slate-200 bg-white px-4 py-4 text-slate-900 outline-none placeholder:text-slate-400 focus:border-fuchsia-400 focus:ring-1 focus:ring-fuchsia-400" />
+            <input type="password" placeholder="סיסמה" className="rounded-2xl border border-slate-200 bg-white px-4 py-4 text-slate-900 outline-none placeholder:text-slate-400 focus:border-fuchsia-400 focus:ring-1 focus:ring-fuchsia-400" />
+            <button className="rounded-2xl bg-gradient-to-l from-fuchsia-500 to-orange-400 px-5 py-4 font-bold text-white shadow-lg shadow-fuchsia-500/20 hover:scale-[1.02] transition-transform">צור חשבון / התחבר</button>
           </div>
         </div>
         <div className="glass rounded-[30px] p-8">
-          <div className="text-sm text-slate-100/65">Backend / Frontend / Hosting</div>
-          <h2 className="mt-2 text-2xl font-black">איך האתר עולה לאינטרנט באמת</h2>
+          <div className="text-sm text-slate-500">הלימוד בקצב שלך</div>
+          <h2 className="mt-2 text-2xl font-black text-slate-900">למה ללמוד ערבית איתנו?</h2>
           <div className="mt-6 grid gap-4">
-            {["Frontend: Next.js עם Tailwind","Backend: Supabase או API Routes","Database: משתמשים, שיעורים, רכישות והתקדמות","Video Hosting: Bunny Stream","Payments: Stripe + PayPal","Hosting: Vercel + דומיין משלך"].map((line) => (
-              <div key={line} className="rounded-2xl border border-white/10 bg-slate-950/35 px-4 py-4 text-slate-100/85">{line}</div>
+            {["גישה לכל החיים לכל התכנים","מאות שעות וידאו באיכות גבוהה","מערכת חכמה למעקב אחר התקדמות אישית","תרגול והאזנה לדיבור בשטח","תמיכה מלאה לאורך כל הדרך","מותאם במיוחד לדוברי עברית"].map((line) => (
+              <div key={line} className="rounded-2xl border border-slate-200 bg-white px-4 py-4 text-slate-700 shadow-sm flex items-center gap-3">
+                 <div className="h-2 w-2 rounded-full bg-emerald-500" />
+                 {line}
+              </div>
             ))}
           </div>
         </div>

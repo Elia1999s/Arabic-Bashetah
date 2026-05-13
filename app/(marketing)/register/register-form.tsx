@@ -38,11 +38,11 @@ export function RegisterForm() {
   if (success) {
     return (
       <div className="glass rounded-[30px] p-8 text-center animate-in fade-in zoom-in duration-500">
-        <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-400 mb-6">
+        <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-emerald-100 text-emerald-600 mb-6">
           <CheckCircle2 className="h-8 w-8" />
         </div>
-        <h3 className="text-2xl font-bold mb-2">תודה על ההרשמה!</h3>
-        <p className="text-slate-300">הפרטים שלך נקלטו בהצלחה. ניצור איתך קשר בהקדם.</p>
+        <h3 className="text-2xl font-bold mb-2 text-slate-900">תודה על ההרשמה!</h3>
+        <p className="text-slate-600">הפרטים שלך נקלטו בהצלחה. ניצור איתך קשר בהקדם.</p>
       </div>
     );
   }
@@ -51,50 +51,50 @@ export function RegisterForm() {
     <div className="glass rounded-[30px] p-8">
       <form onSubmit={handleSubmit} className="flex flex-col gap-5">
         <div>
-          <label className="mb-2 block text-sm font-medium text-slate-300" htmlFor="fullName">שם מלא</label>
+          <label className="mb-2 block text-sm font-medium text-slate-700" htmlFor="fullName">שם מלא</label>
           <input 
             required
             id="fullName"
             name="fullName"
             type="text" 
-            className="w-full rounded-xl border border-white/10 bg-slate-900/50 px-4 py-3 text-white placeholder-slate-500 focus:border-fuchsia-500 focus:outline-none focus:ring-1 focus:ring-fuchsia-500 transition-colors"
+            className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-900 placeholder-slate-400 focus:border-fuchsia-500 focus:outline-none focus:ring-1 focus:ring-fuchsia-500 transition-colors"
             placeholder="ישראל ישראלי"
           />
         </div>
         
         <div>
-          <label className="mb-2 block text-sm font-medium text-slate-300" htmlFor="email">אימייל</label>
+          <label className="mb-2 block text-sm font-medium text-slate-700" htmlFor="email">אימייל</label>
           <input 
             required
             id="email"
             name="email"
             type="email" 
-            className="w-full rounded-xl border border-white/10 bg-slate-900/50 px-4 py-3 text-white placeholder-slate-500 focus:border-fuchsia-500 focus:outline-none focus:ring-1 focus:ring-fuchsia-500 transition-colors"
+            className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-900 placeholder-slate-400 focus:border-fuchsia-500 focus:outline-none focus:ring-1 focus:ring-fuchsia-500 transition-colors"
             placeholder="israel@example.com"
             dir="ltr"
           />
         </div>
         
         <div>
-          <label className="mb-2 block text-sm font-medium text-slate-300" htmlFor="phone">טלפון</label>
+          <label className="mb-2 block text-sm font-medium text-slate-700" htmlFor="phone">טלפון</label>
           <input 
             required
             id="phone"
             name="phone"
             type="tel" 
-            className="w-full rounded-xl border border-white/10 bg-slate-900/50 px-4 py-3 text-white placeholder-slate-500 focus:border-fuchsia-500 focus:outline-none focus:ring-1 focus:ring-fuchsia-500 transition-colors"
+            className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-900 placeholder-slate-400 focus:border-fuchsia-500 focus:outline-none focus:ring-1 focus:ring-fuchsia-500 transition-colors"
             placeholder="050-0000000"
             dir="ltr"
           />
         </div>
 
         <div>
-          <label className="mb-2 block text-sm font-medium text-slate-300" htmlFor="notes">הערות (אופציונלי)</label>
+          <label className="mb-2 block text-sm font-medium text-slate-700" htmlFor="notes">הערות (אופציונלי)</label>
           <textarea 
             id="notes"
             name="notes"
             rows={3}
-            className="w-full rounded-xl border border-white/10 bg-slate-900/50 px-4 py-3 text-white placeholder-slate-500 focus:border-fuchsia-500 focus:outline-none focus:ring-1 focus:ring-fuchsia-500 transition-colors"
+            className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-900 placeholder-slate-400 focus:border-fuchsia-500 focus:outline-none focus:ring-1 focus:ring-fuchsia-500 transition-colors"
             placeholder="אשמח לדעת עוד על מועדי הקורס..."
           />
         </div>

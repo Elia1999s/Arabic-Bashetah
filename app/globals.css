@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 html {
@@ -11,20 +11,20 @@ html {
 }
 
 body {
-  @apply bg-slate-950 text-white antialiased;
-  background-image: radial-gradient(circle at top, rgba(244,114,182,0.16), transparent 28%), radial-gradient(circle at 85% 10%, rgba(251,191,36,0.12), transparent 18%), linear-gradient(180deg, #12061d 0%, #0d1730 100%);
+  @apply bg-slate-50 text-slate-900 antialiased;
+  background-image: radial-gradient(circle at top, rgba(244,114,182,0.1), transparent 28%), radial-gradient(circle at 85% 10%, rgba(251,191,36,0.1), transparent 18%), linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
   min-height: 100vh;
 }
 
 .glass {
-  @apply border border-white/15 bg-white/10 backdrop-blur-2xl shadow-glow;
+  @apply border border-slate-200 bg-white/70 backdrop-blur-2xl shadow-sm;
 }
 
 .grid-overlay::before {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px);
+  background-image: linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
   background-size: 42px 42px;
   pointer-events: none;
 }
