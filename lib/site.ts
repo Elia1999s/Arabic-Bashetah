@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "ערבית בשטח",
   description: "קורס פרימיום בעברית לערבית מדוברת אמיתית.",
-  priceOneTime: 2799,
+  priceOneTime: 2399,
   priceCommitmentMonthly: 499,
   commitmentMonths: 6,
   supportPhone: process.env.NEXT_PUBLIC_SUPPORT_PHONE ?? "0525077410",
@@ -39,7 +39,7 @@ export const planCards = [
   {
     key: "one_time",
     name: "מסלול פרימיום מלא",
-    price: "₪2,799",
+    price: "₪2,399",
     subtitle: "תשלום חד פעמי",
     highlight: true,
     features: [

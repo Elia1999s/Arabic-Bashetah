@@ -1,8 +1,11 @@
+"use client";
+
 import Link from "next/link";
-import { Crown, CreditCard, GraduationCap, Layers3, Mail, Phone, Star } from "lucide-react";
+import { Crown, CreditCard, GraduationCap, Layers3, Mail, Phone, Star, ArrowLeft, Play, Users, Sparkles } from "lucide-react";
 import { SectionTitle } from "@/components/section-title";
 import { VideoPlaceholder } from "@/components/video-placeholder";
 import { modules, siteConfig } from "@/lib/site";
+import { motion } from "framer-motion";
 
 const stats = [
   { value: "300+", label: "שיעורים מתוכננים" },
@@ -15,138 +18,230 @@ export default function HomePage() {
   const totalLessons = modules.reduce((sum, module) => sum + module.count, 0);
 
   return (
-    <main>
-      <section className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-16 md:grid-cols-2 md:px-8 md:py-24">
-        <div>
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-fuchsia-300/25 bg-white/10 px-4 py-2 text-sm text-fuchsia-100 backdrop-blur-xl">
-            <Crown className="h-4 w-4" />
-            מוצר פרימיום במחיר פרימיום — עם חוויית אתר בהתאם
-          </div>
-          <h1 className="text-4xl font-black leading-tight md:text-6xl">
-            לדבר ערבית <span className="bg-gradient-to-l from-fuchsia-300 via-orange-200 to-cyan-200 bg-clip-text text-transparent">ברמה אחרת</span>
+    <main className="overflow-hidden">
+      {/* Hero Section */}
+      <section className="relative mx-auto grid min-h-[90vh] max-w-7xl items-center gap-10 px-4 py-16 md:grid-cols-2 md:px-8 md:py-24">
+        {/* Decorative elements */}
+        <div className="absolute -left-20 top-20 h-64 w-64 rounded-full bg-fuchsia-500/20 blur-[100px]" />
+        <div className="absolute right-0 top-1/2 h-96 w-96 -translate-y-1/2 rounded-full bg-cyan-500/10 blur-[120px]" />
+
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="relative z-10"
+        >
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.2, duration: 0.5 }}
+            className="mb-6 inline-flex items-center gap-2 rounded-full border border-fuchsia-300/30 bg-fuchsia-500/10 px-4 py-2 text-sm text-fuchsia-100 backdrop-blur-xl"
+          >
+            <Sparkles className="h-4 w-4 animate-pulse-glow" />
+            הפלטפורמה המתקדמת ביותר ללימוד ערבית
+          </motion.div>
+          
+          <h1 className="text-5xl font-black leading-tight md:text-7xl">
+            לדבר ערבית <span className="bg-gradient-to-l from-fuchsia-400 via-orange-300 to-cyan-300 bg-clip-text text-transparent">בביטחון מלא</span>
             <br className="hidden md:block" />
-            עם קורס שבנוי כמו מערכת אמיתית
+            בקצב שלך.
           </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-100/85 md:text-xl">
-            {siteConfig.name} הוא מותג לימוד מלא: דף בית מרשים, מערכת תלמידים מקצועית, לוגיקת רכישה, נעילת תוכן, ספריית וידאו עצומה וחוויית משתמש שמתאימה למוצר פרימיום.
+          
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-200/90 md:text-xl">
+            {siteConfig.description} האתר שלנו מציע חוויית למידה מתקדמת עם מאות סרטוני וידאו, מערכת מעקב התקדמות אישית, וממשק נוח שמאפשר לך ללמוד מכל מקום ובכל זמן.
           </p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <Link href="/pricing" className="rounded-2xl bg-gradient-to-l from-fuchsia-500 to-orange-400 px-6 py-4 text-base font-bold text-white shadow-xl shadow-fuchsia-500/25 transition hover:-translate-y-0.5">
-              צפה במסלולים
+          
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.5 }}
+            className="mt-10 flex flex-col gap-4 sm:flex-row"
+          >
+            <Link href="/pricing" className="group relative flex items-center justify-center gap-2 overflow-hidden rounded-2xl bg-gradient-to-l from-fuchsia-500 to-orange-400 px-8 py-4 text-lg font-bold text-white shadow-[0_0_40px_rgba(217,70,239,0.3)] transition-all hover:scale-105 hover:shadow-[0_0_60px_rgba(217,70,239,0.5)]">
+              <span className="relative z-10">הצטרף עכשיו</span>
+              <ArrowLeft className="relative z-10 h-5 w-5 transition-transform group-hover:-translate-x-1" />
+              <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
             </Link>
-            <Link href="/lessons/natural-greetings" className="rounded-2xl border border-white/20 bg-white/10 px-6 py-4 text-base font-semibold text-white transition hover:bg-white/15">
-              צפה בדוגמת שיעור
+            
+            <Link href="/register" className="flex items-center justify-center gap-2 rounded-2xl border border-white/20 bg-white/5 px-8 py-4 text-lg font-semibold text-white backdrop-blur-md transition-all hover:bg-white/10 hover:shadow-[0_0_30px_rgba(255,255,255,0.1)]">
+              <Users className="h-5 w-5" />
+              הרשמה מוקדמת
             </Link>
-          </div>
-          <div className="mt-10 grid grid-cols-2 gap-4 text-sm md:grid-cols-4">
-            {stats.map((stat) => (
-              <div key={stat.label} className="glass rounded-[30px] p-4">
-                <div className="text-2xl font-black text-white">{stat.value}</div>
-                <div className="mt-1 text-slate-100/70">{stat.label}</div>
-              </div>
+          </motion.div>
+          
+          <div className="mt-12 grid grid-cols-2 gap-4 text-sm md:grid-cols-4">
+            {stats.map((stat, i) => (
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 + (i * 0.1), duration: 0.5 }}
+                key={stat.label} 
+                className="glass rounded-[24px] p-5 transition-transform hover:-translate-y-1"
+              >
+                <div className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-br from-white to-white/60">{stat.value}</div>
+                <div className="mt-2 text-slate-300/80 font-medium">{stat.label}</div>
+              </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
 
-        <div className="glass rounded-[30px] p-4">
-          <div className="rounded-[24px] border border-white/10 bg-slate-950/45 p-5">
-            <div className="mb-4 flex items-center justify-between">
-              <div>
-                <div className="text-sm text-slate-300/70">תצוגה מקדימה</div>
-                <div className="text-xl font-bold">אזור תלמידים – ערבית בשטח</div>
-              </div>
-              <div className="rounded-xl bg-emerald-400/15 px-3 py-1 text-sm text-emerald-300">Premium</div>
-            </div>
-            <div className="grid gap-4 md:grid-cols-[250px,1fr]">
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                <div className="mb-4 text-sm text-slate-300/70">ספריית מודולים</div>
-                <div className="grid gap-2">
-                  {modules.map((module) => (
-                    <div key={module.title} className="rounded-2xl border border-white/10 bg-slate-950/50 p-3">
-                      <div className="font-semibold">{module.title}</div>
-                      <div className="mt-1 text-xs text-slate-300/65">{module.count} שיעורים</div>
-                    </div>
-                  ))}
+        <motion.div 
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="relative z-10 hidden md:block"
+        >
+          <div className="glass animate-float rounded-[30px] p-5 shadow-[0_0_50px_rgba(0,0,0,0.5)]">
+            <div className="rounded-[24px] border border-white/10 bg-slate-950/80 p-6 backdrop-blur-xl">
+              <div className="mb-6 flex items-center justify-between">
+                <div>
+                  <div className="text-sm font-medium text-slate-400">תצוגה מקדימה למערכת</div>
+                  <div className="text-2xl font-bold text-white mt-1">אזור תלמידים מתקדם</div>
+                </div>
+                <div className="flex items-center gap-1.5 rounded-full bg-emerald-400/20 px-4 py-1.5 text-sm font-semibold text-emerald-300 border border-emerald-400/20">
+                  <Crown className="h-4 w-4" />
+                  Premium
                 </div>
               </div>
-              <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-fuchsia-500/15 via-slate-900/80 to-cyan-500/10 p-5">
-                <VideoPlaceholder title="נגן שיעור מקצועי + תמלול + קבצים" subtitle="מערכת שנראית ברמה שמצדיקה קורס יקר, עם הרבה מאוד תוכן ותחושת מוצר חזקה." />
-                <div className="mt-4 grid gap-3 md:grid-cols-3">
-                  <div className="glass rounded-[26px] p-4">
-                    <div className="text-xs text-slate-200/70">מחיר מלא</div>
-                    <div className="mt-2 text-2xl font-black">₪2,799</div>
+              <div className="grid gap-5">
+                <div className="overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-fuchsia-500/10 via-slate-900 to-cyan-500/10 p-1 relative group cursor-pointer">
+                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors z-10 flex items-center justify-center">
+                     <div className="w-16 h-16 rounded-full bg-fuchsia-500/80 flex items-center justify-center backdrop-blur-md shadow-[0_0_30px_rgba(217,70,239,0.6)] group-hover:scale-110 transition-transform">
+                       <Play className="h-6 w-6 text-white ml-1" fill="currentColor" />
+                     </div>
                   </div>
-                  <div className="glass rounded-[26px] p-4">
-                    <div className="text-xs text-slate-200/70">היקף</div>
-                    <div className="mt-2 text-xl font-black">{totalLessons}+ שיעורים</div>
-                  </div>
-                  <div className="glass rounded-[26px] p-4">
-                    <div className="text-xs text-slate-200/70">גישה</div>
-                    <div className="mt-2 text-xl font-black text-emerald-300">מיידית</div>
-                  </div>
+                  <VideoPlaceholder title="נגן וידאו מתקדם ברזולוציה גבוהה" subtitle="חווית צפייה חלקה עם אפשרות למעקב התקדמות אוטומטי." />
+                </div>
+                
+                <div className="grid grid-cols-2 gap-4">
+                   <div className="rounded-2xl border border-white/5 bg-white/[0.03] p-4">
+                     <div className="text-xs text-slate-400 mb-1">מודולים</div>
+                     <div className="font-bold text-lg">{modules.length} שלבים</div>
+                   </div>
+                   <div className="rounded-2xl border border-white/5 bg-white/[0.03] p-4">
+                     <div className="text-xs text-slate-400 mb-1">גישה</div>
+                     <div className="font-bold text-lg text-emerald-400">לכל החיים</div>
+                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-8 md:px-8 md:py-16">
-        <SectionTitle eyebrow="נבנה למוצר יקר" title="מי שמשלם הרבה כסף צריך לראות אתר שנראה בהתאם" text="עיצוב צבעוני, עמוק, נקי, עם שכבות רקע, כרטיסים מזכוכית, היררכיה ברורה, טיפוגרפיה טובה וחוויית משתמש שמרגישה מותג אמיתי." />
-        <div className="mt-10 grid gap-5 md:grid-cols-3">
+      {/* Summary Section */}
+      <section className="relative z-20 mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-24">
+        <SectionTitle 
+          eyebrow="מה אנחנו עושים" 
+          title="המערכת המושלמת ללימוד ערבית" 
+          text="בנינו את הפלטפורמה הזו במיוחד עבור דוברי עברית שרוצים ללמוד ערבית מדוברת בצורה הקלה, המהירה והאינטראקטיבית ביותר. האתר משלב שיעורי וידאו ברמה גבוהה עם מערכת למידה חכמה." 
+        />
+        
+        <div className="mt-16 grid gap-6 md:grid-cols-3">
           {[
-            { icon: Layers3, title: "UI מושקע", text: "כפתורים, צבעים, אפקטים, עומק חזותי ומראה פרימיום." },
-            { icon: CreditCard, title: "לוגיקה עסקית", text: "רכישה מלאה או תוכנית תשלומים בהתחייבות ללא עצירה באמצע." },
-            { icon: GraduationCap, title: "מערכת קורסים אמיתית", text: "300+ שיעורים, התקדמות, נעילת תוכן, נגן וידאו וחוויית תלמיד." }
-          ].map((item) => (
-            <div key={item.title} className="glass rounded-[30px] p-6">
-              <div className="grid h-12 w-12 place-items-center rounded-2xl bg-gradient-to-br from-fuchsia-500/40 to-orange-400/40 text-white">
-                <item.icon className="h-6 w-6" />
+            { 
+              icon: Play, 
+              title: "שיעורי וידאו באיכות פרימיום", 
+              text: "מעל 300 סרטוני וידאו מקצועיים שילמדו אותך ערבית שלב אחר שלב, מאפס ועד לדיבור שוטף." 
+            },
+            { 
+              icon: GraduationCap, 
+              title: "מערכת תלמידים חכמה", 
+              text: "מעקב אחר ההתקדמות שלך, סימון שיעורים שהושלמו, וגישה מיידית לכל התכנים לאחר התשלום." 
+            },
+            { 
+              icon: CreditCard, 
+              title: "תשלום מאובטח וגישה מיידית", 
+              text: "שלם פעם אחת ₪2,399 וקבל גישה מיידית ובלתי מוגבלת לכל תכני הקורס מכל מכשיר." 
+            }
+          ].map((item, i) => (
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.2, duration: 0.6 }}
+              key={item.title} 
+              className="glass relative overflow-hidden rounded-[30px] p-8 group hover:-translate-y-2 transition-transform duration-300"
+            >
+              <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-fuchsia-500/10 blur-2xl group-hover:bg-fuchsia-500/20 transition-colors" />
+              <div className="relative z-10">
+                <div className="grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-fuchsia-500 to-orange-400 text-white shadow-[0_8px_16px_rgba(217,70,239,0.3)]">
+                  <item.icon className="h-7 w-7" />
+                </div>
+                <h3 className="mt-6 text-2xl font-bold">{item.title}</h3>
+                <p className="mt-4 leading-relaxed text-slate-300">{item.text}</p>
               </div>
-              <h3 className="mt-4 text-xl font-bold">{item.title}</h3>
-              <p className="mt-3 leading-7 text-slate-100/78">{item.text}</p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 pb-16 md:px-8">
-        <div className="glass grid gap-6 rounded-[30px] p-7 md:grid-cols-[1.1fr,0.9fr]">
-          <div>
-            <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs text-white/80">
-              <Star className="h-3.5 w-3.5" />
-              מה מקבלים בפועל
+      {/* Course Content Summary */}
+      <section className="mx-auto max-w-7xl px-4 pb-20 md:px-8">
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          className="glass grid gap-8 rounded-[40px] p-8 md:grid-cols-[1.2fr,0.8fr] md:p-12 relative overflow-hidden"
+        >
+          <div className="absolute inset-0 bg-gradient-to-br from-fuchsia-500/5 to-cyan-500/5" />
+          <div className="relative z-10">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm font-medium text-white/90 backdrop-blur-md">
+              <Star className="h-4 w-4 text-yellow-400" fill="currentColor" />
+              למה לבחור בנו?
             </div>
-            <h3 className="mt-4 text-3xl font-black">ספריית תוכן עצומה, מסודרת, ונעימה ללמידה</h3>
-            <p className="mt-4 leading-8 text-slate-100/80">
-              אם אתה בונה קורס של בערך 300 שיעורים, האתר חייב לדעת לנהל עומס תוכן: חלוקה למודולים, חיפוש, סינון, מצב התקדמות, ותצוגה חכמה של שיעורים פתוחים ונעולים.
+            <h3 className="mt-6 text-4xl font-black leading-tight">השקעה אחת, <br/><span className="text-transparent bg-clip-text bg-gradient-to-l from-fuchsia-400 to-orange-300">ידע לכל החיים</span></h3>
+            <p className="mt-6 text-lg leading-relaxed text-slate-300">
+              בניגוד לקורסים אחרים, המערכת שלנו נבנתה במיוחד כדי לתת לך חווית משתמש מושלמת. ברגע שאתה נרשם ומשלם, נפתח בפניך עולם שלם של תוכן וידאו, תרגולים ומעקב התקדמות שיאפשר לך ללמוד בקצב שלך.
             </p>
+            <div className="mt-8 flex gap-4">
+              <Link href="/pricing" className="rounded-xl bg-white px-6 py-3 font-bold text-slate-900 transition-transform hover:scale-105">
+                לרכישת הקורס
+              </Link>
+            </div>
           </div>
-          <div className="grid gap-3">
-            {["קטלוג קורסים ומודולים","נגן וידאו מוגן","תמלול וקבצים לכל שיעור","התקדמות אישית","אזור רכישות וחשבונית","דף בית שיווקי פתוח לאינטרנט"].map((item) => (
-              <div key={item} className="rounded-2xl border border-white/10 bg-slate-950/35 px-4 py-4 text-slate-100/85">{item}</div>
+          <div className="relative z-10 flex flex-col justify-center gap-3">
+            {["ספריית וידאו ענקית עם מעל 300 שיעורים","ממשק משתמש נוח ומתקדם","מעקב התקדמות אישי לכל תלמיד","אזור רכישה מאובטח (Stripe)","תמיכה מלאה וליווי צמוד","גישה מכל מחשב, טאבלט או סמארטפון"].map((item, i) => (
+              <motion.div 
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                key={item} 
+                className="flex items-center gap-4 rounded-2xl border border-white/5 bg-slate-950/50 px-5 py-4 shadow-sm backdrop-blur-sm"
+              >
+                <div className="rounded-full bg-emerald-500/20 p-1 text-emerald-400">
+                  <Star className="h-4 w-4" />
+                </div>
+                <span className="font-medium text-slate-200">{item}</span>
+              </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 pb-16 md:px-8">
-        <div className="glass grid gap-6 rounded-[30px] p-6 md:grid-cols-[1fr,1fr]">
-          <div>
-            <div className="text-sm text-slate-200/65">פרטי קשר באתר</div>
-            <h3 className="mt-2 text-2xl font-black">יצירת קשר ומכירה</h3>
-            <p className="mt-3 leading-7 text-slate-100/78">האתר כולל מקום ברור לפרטי הקשר שלך, כדי שמי שמתרשם יוכל להגיע אליך גם ישירות.</p>
-          </div>
-          <div className="grid gap-3">
-            <a href={`tel:${siteConfig.supportPhone}`} className="flex items-center gap-3 rounded-2xl border border-white/10 bg-slate-950/35 px-4 py-4">
-              <Phone className="h-5 w-5 text-emerald-300" />
-              <span className="font-medium">{siteConfig.supportPhone}</span>
-            </a>
-            <a href={`mailto:${siteConfig.supportEmail}`} className="flex items-center gap-3 rounded-2xl border border-white/10 bg-slate-950/35 px-4 py-4">
-              <Mail className="h-5 w-5 text-cyan-300" />
-              <span className="font-medium">{siteConfig.supportEmail}</span>
-            </a>
-          </div>
+      {/* Contact Section */}
+      <section className="mx-auto max-w-7xl px-4 pb-24 md:px-8">
+        <div className="glass flex flex-col md:flex-row items-center justify-between gap-8 rounded-[30px] p-8 relative overflow-hidden">
+           <div className="absolute left-0 top-0 w-1/2 h-full bg-gradient-to-r from-fuchsia-500/10 to-transparent pointer-events-none" />
+           <div className="relative z-10 max-w-xl">
+             <h3 className="text-3xl font-black mb-4">יש לך שאלות? אנחנו כאן!</h3>
+             <p className="text-slate-300 text-lg">רוצה להתייעץ לפני הרשמה? השאר פרטים בדף ההרשמה או צור איתנו קשר ישירות.</p>
+           </div>
+           <div className="relative z-10 flex flex-col sm:flex-row gap-4 w-full md:w-auto">
+             <a href={`tel:${siteConfig.supportPhone}`} className="group flex items-center justify-center gap-3 rounded-2xl border border-white/10 bg-slate-900/80 px-6 py-4 transition-all hover:bg-slate-800 hover:border-emerald-500/50">
+                <div className="rounded-full bg-emerald-500/20 p-2 text-emerald-400 group-hover:bg-emerald-500 group-hover:text-white transition-colors">
+                  <Phone className="h-5 w-5" />
+                </div>
+                <span className="font-bold text-lg" dir="ltr">{siteConfig.supportPhone}</span>
+             </a>
+             <a href={`mailto:${siteConfig.supportEmail}`} className="group flex items-center justify-center gap-3 rounded-2xl border border-white/10 bg-slate-900/80 px-6 py-4 transition-all hover:bg-slate-800 hover:border-cyan-500/50">
+                <div className="rounded-full bg-cyan-500/20 p-2 text-cyan-400 group-hover:bg-cyan-500 group-hover:text-white transition-colors">
+                  <Mail className="h-5 w-5" />
+                </div>
+                <span className="font-bold text-lg">{siteConfig.supportEmail}</span>
+             </a>
+           </div>
         </div>
       </section>
     </main>

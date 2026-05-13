@@ -8,6 +8,15 @@ create table if not exists public.profiles (
   created_at timestamptz not null default now()
 );
 
+create table if not exists public.leads (
+  id uuid primary key default gen_random_uuid(),
+  full_name text not null,
+  email text not null,
+  phone text,
+  notes text,
+  created_at timestamptz not null default now()
+);
+
 create table if not exists public.products (
   id uuid primary key default gen_random_uuid(),
   slug text not null unique,
@@ -74,6 +83,6 @@ create table if not exists public.lesson_progress (
 
 insert into public.products (slug, name, billing_type, price_ils, commitment_months)
 values
-  ('premium-full', 'מסלול פרימיום מלא', 'one_time', 279900, null),
+  ('premium-full', 'מסלול פרימיום מלא', 'one_time', 239900, null),
   ('monthly-commitment', 'תוכנית תשלומים חודשית', 'commitment', 49900, 6)
 on conflict (slug) do nothing;

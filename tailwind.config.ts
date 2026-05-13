@@ -27,6 +27,20 @@ const config: Config = {
       },
       backgroundImage: {
         hero: "radial-gradient(circle at 18% 15%, rgba(244,114,182,0.22), transparent 25%), radial-gradient(circle at 82% 18%, rgba(251,191,36,0.2), transparent 18%), radial-gradient(circle at 55% 75%, rgba(34,211,238,0.18), transparent 25%), linear-gradient(135deg, #14071f 0%, #1e1441 35%, #0f2242 70%, #0a1328 100%)"
+      },
+      keyframes: {
+        float: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-10px)' },
+        },
+        pulseGlow: {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0.6' },
+        }
+      },
+      animation: {
+        float: 'float 6s ease-in-out infinite',
+        'pulse-glow': 'pulseGlow 3s ease-in-out infinite',
       }
     }
   },
