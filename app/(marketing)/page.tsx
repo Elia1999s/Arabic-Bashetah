@@ -176,6 +176,103 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Meet the Teacher Section */}
+      <section className="relative z-20 mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-24">
+        <div className="glass overflow-hidden rounded-[40px] p-8 md:p-12">
+          <div className="grid items-center gap-12 md:grid-cols-2">
+            <motion.div 
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="relative order-2 md:order-1"
+            >
+              <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/60 px-4 py-1.5 text-sm font-medium text-slate-700 backdrop-blur-md mb-6">
+                <Users className="h-4 w-4 text-fuchsia-500" />
+                הכירו את המורה שלכם
+              </div>
+              <h2 className="text-4xl font-black leading-tight text-slate-900 mb-6">
+                ללמוד ערבית מהטובים ביותר
+              </h2>
+              <p className="text-lg leading-relaxed text-slate-600 mb-6">
+                שלום! אני אליה, המורה שלכם בקורס ״ערבית בשטח״. 
+                <br/><br/>
+                את הקורס הזה בניתי מתוך הבנה עמוקה של האתגרים שעומדים בפני דוברי עברית שרוצים ללמוד ערבית. לאחר שנים של ניסיון בהוראה, פיתחתי שיטה מנצחת שמוכיחה את עצמה פעם אחר פעם, ומתמקדת בדיבור שוטף, ביטחון עצמי, והבנת השפה מהשטח.
+              </p>
+              <div className="flex gap-4">
+                 <div className="flex flex-col">
+                   <span className="text-3xl font-black text-slate-900">5+</span>
+                   <span className="text-sm font-medium text-slate-500">שנות ניסיון</span>
+                 </div>
+                 <div className="w-px bg-slate-200 mx-2"></div>
+                 <div className="flex flex-col">
+                   <span className="text-3xl font-black text-slate-900">1000+</span>
+                   <span className="text-sm font-medium text-slate-500">תלמידים מרוצים</span>
+                 </div>
+              </div>
+            </motion.div>
+            
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="relative order-1 md:order-2 flex justify-center"
+            >
+              <div className="relative h-80 w-80 md:h-[480px] md:w-[450px]">
+                {/* Decorative Elements */}
+                <div className="absolute -inset-4 animate-pulse-glow rounded-[48px] bg-gradient-to-br from-fuchsia-500/20 to-cyan-500/20 blur-xl"></div>
+                <div className="absolute inset-0 translate-x-4 translate-y-4 rounded-[40px] bg-gradient-to-br from-fuchsia-500 to-orange-400"></div>
+                
+                {/* Image Container */}
+                <div className="relative h-full w-full overflow-hidden rounded-[40px] border-[6px] border-white bg-slate-100 shadow-2xl">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img 
+                    src="/teacher.jpg" 
+                    alt="אליה - מורה לערבית" 
+                    className="h-full w-full object-cover object-top transition-all duration-700 hover:scale-110 hover:rotate-1"
+                    onError={(e) => {
+                      e.currentTarget.src = "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?q=80&w=800&auto=format&fit=crop";
+                    }}
+                  />
+                  
+                  {/* Gradient Overlay for bottom text if needed */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent opacity-0 transition-opacity duration-300 hover:opacity-100"></div>
+                </div>
+
+                {/* Verified Badge */}
+                <div className="absolute -right-6 top-10 flex items-center gap-2 rounded-2xl border border-white/40 bg-white/80 px-4 py-2 text-sm font-bold text-slate-900 shadow-xl backdrop-blur-md">
+                  <div className="flex h-6 w-6 items-center justify-center rounded-full bg-emerald-500 text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  </div>
+                  מורה מוסמך
+                </div>
+                
+                {/* Floating Rating Badge */}
+                <div className="absolute -left-6 bottom-10 flex items-center gap-3 rounded-2xl border border-white/40 bg-white/90 px-5 py-3 shadow-xl backdrop-blur-md">
+                  <div className="flex -space-x-2 rtl:space-x-reverse">
+                    {[1, 2, 3].map((i) => (
+                      <div key={i} className="h-8 w-8 rounded-full border-2 border-white bg-slate-200">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img src={`https://i.pravatar.cc/100?img=${i + 10}`} alt="User" className="h-full w-full rounded-full object-cover" />
+                      </div>
+                    ))}
+                  </div>
+                  <div>
+                    <div className="flex text-yellow-400">
+                      {[...Array(5)].map((_, i) => (
+                        <svg key={i} xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                      ))}
+                    </div>
+                    <div className="text-xs font-bold text-slate-700">5.0 דירוג תלמידים</div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* Course Content Summary */}
       <section className="mx-auto max-w-7xl px-4 pb-20 md:px-8">
         <motion.div 

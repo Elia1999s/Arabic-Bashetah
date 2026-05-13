@@ -12,6 +12,8 @@ export const metadata: Metadata = {
   description: siteConfig.description
 };
 
+import { CookieBanner } from "@/components/cookie-banner";
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="he" dir="rtl" className={heebo.className}>
@@ -20,6 +22,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <SiteHeader />
           {children}
           <SiteFooter />
+          <CookieBanner />
         </div>
       </body>
     </html>
